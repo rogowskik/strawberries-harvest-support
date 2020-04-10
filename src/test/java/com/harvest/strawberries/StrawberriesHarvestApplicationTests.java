@@ -1,10 +1,10 @@
-package com.example.truskawki;
+package com.harvest.strawberries;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TruskawkiApplicationTests {
+class StrawberriesHarvestApplicationTests {
 
 	@Test
 	void contextLoads() {

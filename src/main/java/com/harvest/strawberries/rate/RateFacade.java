@@ -1,11 +1,11 @@
-package com.example.truskawki.rate;
+package com.harvest.strawberries.rate;
 
-import com.example.truskawki.rate.create.CreateRateDto;
-import com.example.truskawki.rate.create.Rate;
-import com.example.truskawki.rate.create.RateRespository;
-import com.example.truskawki.rate.exception.NotFoundException;
-import com.example.truskawki.rate.find.RateDto;
-import com.example.truskawki.rate.mapper.RateToRateDtoMapper;
+import com.harvest.strawberries.rate.create.CreateRateDto;
+import com.harvest.strawberries.rate.mapper.RateToRateDtoMapper;
+import com.harvest.strawberries.rate.create.Rate;
+import com.harvest.strawberries.rate.create.RateRespository;
+import com.harvest.strawberries.rate.exception.CurrentExchangeRateNotFoundException;
+import com.harvest.strawberries.rate.find.RateDto;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -14,21 +14,21 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @AllArgsConstructor
-public class RateService {
+public class RateFacade {
 
     private RateRespository rateRespository;
 
     public void saveOrUpdate(CreateRateDto rateDto) {
         Rate rate = Optional.ofNullable(rateRespository.findByDate(rateDto.getDate())).orElse(new Rate());
-        rate.setCropped(rateDto.getCropped());
-        rate.setSorted(rateDto.getSorted());
-        rate.setUnsorted(rateDto.getUnsorted());
+        rate.setBasketCropped(rateDto.getCropped());
+        rate.setBasketSorted(rateDto.getSorted());
+        rate.setBasketUnsorted(rateDto.getUnsorted());
         rate.setKg(rateDto.getKg());
         rateRespository.save(rate);
     }
 
     public List<RateDto> findAll() {
-        return StreamSupport.stream(rateRespository.findAll().spliterator(), false)
+        return StreamSupport.stream(rateRespository.findAll().spliterator(), true)
                 .collect(Collectors.toList())
                 .stream()
                 .map(RateToRateDtoMapper::rate)
@@ -38,7 +38,7 @@ public class RateService {
     public RateDto findById(String id) {
        return rateRespository.findById(id)
                .map(RateToRateDtoMapper::rate)
-               .orElseThrow(() -> new NotFoundException("Rate with given was not found"));
+               .orElseThrow(() -> new CurrentExchangeRateNotFoundException("Rate with given id was not found"));
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.truskawki.rate.create;
+package com.harvest.strawberries.rate.create;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,17 +25,8 @@ public class Rate {
     private String id;
     private LocalDate date;
     private int basketSorted;
-    private int unsorted;
-    private int unsorted;
+    private int basketUnsorted;
+    private int basketCropped;
     private int kg;
-    {
-        sortType: kg,
-        kilogram: 150,
-        basketQ: 2,
-        paletteQ: 3,
-            paleta-tr: "0.5kg"
-    }
-
-
 
 }

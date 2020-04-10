@@ -1,4 +1,4 @@
-package com.example.truskawki.rate.create;
+package com.harvest.strawberries.rate.create;
 
 import org.springframework.data.repository.CrudRepository;
 

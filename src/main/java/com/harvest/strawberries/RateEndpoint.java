@@ -1,8 +1,8 @@
-package com.example.truskawki;
+package com.harvest.strawberries;
 
-import com.example.truskawki.rate.RateService;
-import com.example.truskawki.rate.create.CreateRateDto;
-import com.example.truskawki.rate.find.RateDto;
+import com.harvest.strawberries.rate.RateFacade;
+import com.harvest.strawberries.rate.create.CreateRateDto;
+import com.harvest.strawberries.rate.find.RateDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,20 +13,20 @@ import java.util.List;
 @RestController
 public class RateEndpoint {
 
-    private RateService rateService;
+    private RateFacade rateFacade;
 
     @PostMapping
     public void create(@RequestBody CreateRateDto rateDto) {
-        rateService.saveOrUpdate(rateDto);
+        rateFacade.saveOrUpdate(rateDto);
     }
 
     @GetMapping("{id}")
     public void findById(@PathVariable("id") String id) {
-        rateService.findById(id);
+        rateFacade.findById(id);
     }
 
     @GetMapping
     public List<RateDto> findAll() {
-       return rateService.findAll();
+        return rateFacade.findAll();
     }
 }
