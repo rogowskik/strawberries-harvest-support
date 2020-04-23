@@ -1,4 +1,4 @@
-package com.harvest.strawberries;
+package com.harvest.strawberries.rate;
 
 import com.harvest.strawberries.rate.RateFacade;
 import com.harvest.strawberries.rate.create.CreateRateDto;

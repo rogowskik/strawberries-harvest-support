@@ -1,0 +1,155 @@
+<main role="main" class="col-md-12">
+    <!--    ml-sm-auto col-lg-10 pt-3 px-4-->
+    <div>
+        <!--        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom"-->
+        <!--        <div class="btn-toolbar mb-2 mb-md-0">-->
+        <!--            <div class="form-group">-->
+        <!--                <label for="usr">Sortowane:</label>-->
+        <!--                <input type="text" class="form-control" id="usr">-->
+        <!--            </div>-->
+        <div>
+            <button type="button" class="btn btn-primary col-md-1 float-right" disabled="true" id="saveRateButton" onclick="saveRateClicked()">Zapisz</button>
+            <button type="button" class="btn btn-dark col-md-1 float-right" id="editRateButton" onclick="editRateClicked()">Zmień</button>
+        </div>
+        <form>
+        <ul>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Sobota</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted1">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted1" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted1">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted1" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped1">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped1" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram1">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram1" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Niedziela</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted2">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted2" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted2">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted2" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped2">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped2" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram2">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram2" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Poniedziałek</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted3">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted3" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted3">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted3" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped3">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped3" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram3">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram3" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Wtorek</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted4">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted4" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted4">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted4" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped4">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped4" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram4">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram4" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Środa</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted5">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true"onclick=""  id="sorted5" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted5">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted5" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped5">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped5" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram5">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram5" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Czwartek</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted6">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted6" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted6">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted6" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped6">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped6" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram6">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram6" placeholder="0">
+                </div>
+            </li>
+            <li class="form-row">
+                <h4 class="h4 form-group col-md-2">Piątek</h4>
+                <div class="form-group col-md-1">
+                    <label for="sorted7">Sortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="sorted7" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="unsorted7">Niesortowane:</label>
+                    <input type="number" class="form-control" disabled="true" id="unsorted7" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cropped7">Skubane:</label>
+                    <input type="number" class="form-control" disabled="true" id="cropped7" placeholder="0">
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="kilogram7">Kilogramy:</label>
+                    <input type="number" class="form-control" disabled="true" id="kilogram7" placeholder="0">
+                </div>
+            </li>
+        </ul>
+        </form>
+    </div>
+
+<!--    <canvas class="my-4" id="myChart" width="900" height="380"></canvas>-->
+
+</main>

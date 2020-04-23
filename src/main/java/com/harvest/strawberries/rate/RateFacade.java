@@ -23,6 +23,7 @@ public class RateFacade {
         rate.setBasketCropped(rateDto.getCropped());
         rate.setBasketSorted(rateDto.getSorted());
         rate.setBasketUnsorted(rateDto.getUnsorted());
+        rate.setDate(rateDto.getDate());
         rate.setKg(rateDto.getKg());
         rateRespository.save(rate);
     }

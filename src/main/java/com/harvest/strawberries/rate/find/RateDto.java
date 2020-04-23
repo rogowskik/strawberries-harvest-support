@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Builder
 public class RateDto {
 
-    private LocalDate day;
+    private LocalDate date;
     private int sorted;
     private int unsorted;
     private int cropped;

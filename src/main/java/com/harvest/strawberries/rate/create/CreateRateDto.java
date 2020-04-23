@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 public class CreateRateDto {
 
-    private LocalDate date;
+    private LocalDate date; // day o week
     private int sorted;
     private int unsorted;
     private int cropped;
