@@ -1,6 +1,5 @@
 package com.harvest.strawberries.rate.find;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +12,7 @@ import java.time.LocalDate;
 public class RateDto {
 
     private LocalDate date;
+    private String weekday;
     private int sorted;
     private int unsorted;
     private int cropped;

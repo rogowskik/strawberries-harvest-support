@@ -1,6 +1,5 @@
 package com.harvest.strawberries.rate;
 
-import com.harvest.strawberries.rate.RateFacade;
 import com.harvest.strawberries.rate.create.CreateRateDto;
 import com.harvest.strawberries.rate.find.RateDto;
 import lombok.AllArgsConstructor;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 public class RateEndpoint {
 
-    private RateFacade rateFacade;
+    private RateService rateFacade;
 
     @PostMapping
     public void create(@RequestBody CreateRateDto rateDto) {
