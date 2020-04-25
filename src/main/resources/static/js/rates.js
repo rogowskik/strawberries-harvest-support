@@ -1,60 +1,58 @@
 var editStatus = {
-	true: 'Zmień',
-	false: 'Anuluj'
+    true: 'Zmień',
+    false: 'Anuluj'
 }
 var inputState = true;
 var buttonState = true;
+var sortArr = ["sorted", "unsorted", "cropped", "kg"];
+var rateUrl = 'rest/api/rate';
 
 function editRateClicked() {
-	var sortArr = ["sorted", "unsorted", "cropped", "kilogram"];
-	if (inputState) {
-		inputState = false;
-	} else {
-		inputState = true;
-	}
-	for (var sort in sortArr) {
-		for (var i = 0; i < 7; i++) {
-			var index = i + 1;
-			toggleDisable(sortArr[sort] + index, inputState);
-		}
-	}
-	toggleDisable('saveRateButton', inputState);
-	changeEditStatus('editRateButton', editStatus[inputState]);
+    if (inputState) {
+        inputState = false;
+    } else {
+        inputState = true;
+    }
+    for (var sort in sortArr) {
+        for (var i = 0; i < 7; i++) {
+            var index = i + 1;
+            toggleDisable(sortArr[sort] + index, inputState);
+        }
+    }
+    toggleDisable('saveRateButton', inputState);
+    changeEditStatus('editRateButton', editStatus[inputState]);
 }
 
 function saveRateClicked() {
-	testPost();
+    var daysOfWeek = {
+        sat: 1,
+        sun: 2,
+        mon: 3,
+        tu: 4,
+        wed: 5,
+        th: 6,
+        fri: 7
+    };
+
+    for (day in daysOfWeek) {
+        var obj = new Object();
+        var index = daysOfWeek[day];
+        for (var sort in sortArr) {
+        console.log(sortArr[sort] + index);
+            obj[sortArr[sort]] = document.getElementById(sortArr[sort] + index).innerHTML;
+            obj.date = day;
+            //doPost(obj,rateUrl);
+        }
+    }
+    //testPost();
+
 }
 
 function toggleDisable(name, state) {
-	document.getElementById(name).disabled = state;
+    document.getElementById(name).disabled = state;
 }
 
 function changeEditStatus(element, changedName) {
-	console.log(element);
-	document.getElementById(element).textContent = changedName;
-}
-
-function testPost() {
-	var json = {
-		"date": new Date(),
-		"sorted": 1,
-		"unsorted": 2,
-		"cropped": 199,
-		"kg": 8
-	}
-	var http = new XMLHttpRequest();
-	var url = 'rest/api/rate';
-	var params = 'orem=ipsum&name=binny';
-	http.open("POST", url);
-
-	//Send the proper header information along with the request
-	http.setRequestHeader('Content-type', 'application/json');
-
-	http.onreadystatechange = function () { //Call a function when the state changes.
-		if (http.readyState == 4 && http.status == 200) {
-			alert(http.responseText);
-		}
-	}
-	http.send(JSON.stringify(json));
+    console.log(element);
+    document.getElementById(element).textContent = changedName;
 }

@@ -1,3 +1,8 @@
 #saveRateButton, #editRateButton {
 margin: 3px 3px 3px 3px;
 }
+
+
+#rate-ul li:nth-child(even) {
+    background-color: #F2F2F3;
+}
