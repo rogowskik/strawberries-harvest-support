@@ -1,9 +1,9 @@
 package com.harvest.strawberries.rate.create;
 
 
-import com.harvest.strawberries.weekday.CustomDayOfWeek;
-import com.harvest.strawberries.weekday.Weekday;
-import com.harvest.strawberries.weekday.WeekdayResolver;
+import com.harvest.strawberries.rate.domain.weekday.CustomDayOfWeekView;
+import com.harvest.strawberries.rate.domain.weekday.Weekday;
+import com.harvest.strawberries.rate.domain.weekday.WeekdayResolver;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -29,9 +29,9 @@ class WeekdayResolverTest {
 
         //WHEN
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(LocalDate.now());
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertEquals(7, customDayOfWeeks.size());
+        assertEquals(7, customDayOfWeekViews.size());
     }
 
     @Test
@@ -41,12 +41,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate monday = LocalDate.now().withMonth(4).withDayOfMonth(27).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(monday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -56,12 +56,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate tuesday = LocalDate.now().withMonth(4).withDayOfMonth(28).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(tuesday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -71,12 +71,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate wendsday = LocalDate.now().withMonth(4).withDayOfMonth(29).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(wendsday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -86,12 +86,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate monday = LocalDate.now().withMonth(4).withDayOfMonth(30).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(monday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -101,12 +101,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate friday = LocalDate.now().withMonth(5).withDayOfMonth(1).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(friday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -116,12 +116,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate monday = LocalDate.now().withMonth(5).withDayOfMonth(2).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(monday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
     @Test
@@ -131,12 +131,12 @@ class WeekdayResolverTest {
         //WHEN
         LocalDate monday = LocalDate.now().withMonth(5).withDayOfMonth(3).withYear(2020);
         when(weekdayResolver.getStartingPointForLastWeek()).thenReturn(monday);
-        List<CustomDayOfWeek> customDayOfWeeks = weekdayResolver.resolveDateRange();
+        List<CustomDayOfWeekView> customDayOfWeekViews = weekdayResolver.resolveDateRange();
         //THEN
-        assertTrue(customDayOfWeeks.size() > 0);
-        assertEquals(Weekday.SATURDAY, customDayOfWeeks.get(0).getDayOfWeek());
-        assertEquals(7, customDayOfWeeks.size());
-        assertEquals(Weekday.FRIDAY, customDayOfWeeks.get(customDayOfWeeks.size() - 1).getDayOfWeek());
+        assertTrue(customDayOfWeekViews.size() > 0);
+        assertEquals(Weekday.SATURDAY, customDayOfWeekViews.get(0).getDayOfWeek());
+        assertEquals(7, customDayOfWeekViews.size());
+        assertEquals(Weekday.FRIDAY, customDayOfWeekViews.get(customDayOfWeekViews.size() - 1).getDayOfWeek());
     }
 
 
