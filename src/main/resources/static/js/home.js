@@ -5,3 +5,5 @@ function getWeekRange() {
 function getTitle() {
 // new GET for title
 }
+
+function doOnHomeLoad() {}

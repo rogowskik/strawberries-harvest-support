@@ -24,6 +24,8 @@ Router.prototype = {
         (function(scope, r) { 
             window.addEventListener('hashchange', function (e) {
                 scope.hasChanged(scope, r);
+
+              //  [route.onLoadFunction]();
             });
         })(this, r);
         this.hasChanged(this, r);
@@ -33,7 +35,11 @@ Router.prototype = {
             for (var i = 0, length = r.length; i < length; i++) {
                 var route = r[i];
                 if(route.isActiveRoute(window.location.hash.substr(1))) {
+
+                console.log(route.onLoadFunction);
+                //var loadf = route.onLoadFunction
                     scope.goToRoute(route.htmlName);
+                   //setPeopleList();
                 }
             }
         } else {
@@ -41,6 +47,7 @@ Router.prototype = {
                 var route = r[i];
                 if(route.default) {
                     scope.goToRoute(route.htmlName);
+                    //[route.onLoadFunction]();
                 }
             }
         }
@@ -52,10 +59,15 @@ Router.prototype = {
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     scope.rootElem.innerHTML = this.responseText;
+                      var pageNme = htmlName.split('.')[0];
+                      var evt = document.createEvent("Events");
+                      evt.initEvent(pageNme + "Loaded", false, true);
+                      document.dispatchEvent(evt);
                 }
             };
             xhttp.open('GET', url, true);
             xhttp.send();
+
         })(this);
     }
 };

@@ -2,6 +2,15 @@ var editStatus = {
     true: 'Zmień',
     false: 'Anuluj'
 }
+    var daysOfWeek = {
+        sat: 1,
+        sun: 2,
+        mon: 3,
+        tu: 4,
+        wed: 5,
+        th: 6,
+        fri: 7
+    };
 var inputState = true;
 var buttonState = true;
 var sortArr = ["sorted", "unsorted", "cropped", "kg"];
@@ -23,17 +32,9 @@ function editRateClicked() {
     changeEditStatus('editRateButton', editStatus[inputState]);
 }
 
-function saveRateClicked() {
-    var daysOfWeek = {
-        sat: 1,
-        sun: 2,
-        mon: 3,
-        tu: 4,
-        wed: 5,
-        th: 6,
-        fri: 7
-    };
+function doOnRatesLoad() {}
 
+function saveRateClicked() {
     for (day in daysOfWeek) {
         var obj = new Object();
         var index = daysOfWeek[day];
@@ -53,6 +54,5 @@ function toggleDisable(name, state) {
 }
 
 function changeEditStatus(element, changedName) {
-    console.log(element);
     document.getElementById(element).textContent = changedName;
 }

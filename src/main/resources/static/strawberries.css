@@ -1,4 +1,4 @@
-#saveRateButton, #editRateButton {
+#saveRateButton, #editRateButton, #saveSingleReportButton, #editSingleReportButton, #generateDailyButton, #generateWeeklyButton {
 margin: 3px 3px 3px 3px;
 }
 
