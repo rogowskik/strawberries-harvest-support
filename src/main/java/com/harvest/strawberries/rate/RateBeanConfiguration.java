@@ -1,6 +1,7 @@
 package com.harvest.strawberries.rate;
 
-import com.harvest.strawberries.rate.create.RateRespository;
+import com.harvest.strawberries.rate.domain.weekday.WeekdayResolver;
+import com.harvest.strawberries.reports.domain.FileHarvestReportImporter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +9,9 @@ import org.springframework.context.annotation.Configuration;
 public class RateBeanConfiguration {
 
     @Bean
-    public RateFacade createRateService(final RateRespository rateRespository) {
-        return new RateFacade(rateRespository);
+    public WeekdayResolver weekdayResolver() {
+        return new WeekdayResolver();
     }
+
+
 }

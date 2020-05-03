@@ -1,17 +1,16 @@
-package com.harvest.strawberries.rate.create;
+package com.harvest.strawberries.rate.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @Getter
 @Setter
-public class CreateRateDto {
+public class CreateRateCommand {
 
-    private LocalDate date; // day o week
+    private String dayOfWeek;
     private int sorted;
     private int unsorted;
     private int cropped;

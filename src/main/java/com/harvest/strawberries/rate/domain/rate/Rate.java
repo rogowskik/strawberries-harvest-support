@@ -1,15 +1,12 @@
-package com.harvest.strawberries.rate.create;
+package com.harvest.strawberries.rate.domain.rate;
 
+import com.harvest.strawberries.rate.domain.weekday.Weekday;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -24,6 +21,8 @@ public class Rate {
     )
     private String id;
     private LocalDate date;
+    @Enumerated(EnumType.STRING)
+    private Weekday weekday;
     private int basketSorted;
     private int basketUnsorted;
     private int basketCropped;
